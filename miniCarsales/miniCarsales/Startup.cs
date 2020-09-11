@@ -1,12 +1,14 @@
+using carsales.Models.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace miniCarsales
+namespace carsales
 {
     public class Startup
     {
@@ -26,6 +28,9 @@ namespace miniCarsales
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<MiniCarsalesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MiniCarsalesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
