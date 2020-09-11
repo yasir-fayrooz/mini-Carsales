@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace carsales.Models.Context
+namespace miniCarsales.Models.Context
 {
     public class MiniCarsalesContext : DbContext
     {
