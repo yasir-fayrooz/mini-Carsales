@@ -15,11 +15,13 @@ You will need these dependencies to work with the local database connection, oth
  <p align="center"> 
     <img src="img/sqlexplorer.JPG" alt="sqlexplorer" width="400">
  </p>
-## 2.1 > right click on (localdb)\\MSSQLLocalDB and click on properties
+
+### 2.1 > right click on (localdb)\\MSSQLLocalDB and click on properties
  <p align="center"> 
     <img src="img/connectionstring2.JPG" alt="connectionstring2" width="400">
  </p>
-## 2.2 > ensure the connection string property is the same as the connection string property in appsettings.json
+
+### 2.2 > ensure the connection string property is the same as the connection string property in appsettings.json
 
 I think its the same for everyone but i'm stating this just to be safe.
   <p align="center"> 
