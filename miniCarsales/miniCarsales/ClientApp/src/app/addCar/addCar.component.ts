@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
+import { CarService } from '../services/car.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'add-car',
@@ -13,8 +15,8 @@ export class AddCar {
 
   private makeModels: string[];
 
-  constructor(private _fb: FormBuilder, private route: ActivatedRoute,
-    private _router: Router) {
+  constructor(private _fb: FormBuilder, private route: ActivatedRoute, private carService: CarService,
+    private _router: Router, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
 
     this.carForm = this._fb.group({
       Make: ["", [Validators.required]],
@@ -68,6 +70,13 @@ export class AddCar {
 
   public SelectBodyType(selectedValue: string): void {
     this.carForm.patchValue({ 'BodyType': Number(selectedValue) });
+  }
+
+  public AddToDatabase(): void {
+    this.carService.addCar(this.carForm.value).subscribe((data) => {
+      this._router.navigate(["/"]);
+    }, error => console.log(error));
+
   }
 
   private PopulateModels(): void {

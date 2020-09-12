@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddCar } from './addCar/addcar.component';
 
+import { CarService } from './services/car.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { AddCar } from './addCar/addcar.component';
       { path: 'AddCar', component: AddCar },
     ])
   ],
-  providers: [],
+  providers: [CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

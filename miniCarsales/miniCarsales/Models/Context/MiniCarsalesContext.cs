@@ -4,6 +4,9 @@ namespace miniCarsales.Models.Context
 {
     public class MiniCarsalesContext : DbContext
     {
+        public MiniCarsalesContext()
+        {
+        }
         public MiniCarsalesContext(DbContextOptions<MiniCarsalesContext> options)
             : base(options)
         {

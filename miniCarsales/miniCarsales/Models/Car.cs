@@ -2,6 +2,7 @@
 {
     public class Car : Vehicle
     {
+        /*
         public Car(string Make, string Model)
         {
             this.Id = Id;
@@ -9,6 +10,7 @@
             this.Model = Model;
             this.VehicleType = VehicleType.Car;
         }
+        */
 
         public string Engine { get; set; }
         public int Doors { get; set; }
