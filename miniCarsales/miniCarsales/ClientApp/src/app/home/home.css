@@ -1,0 +1,25 @@
+
+.select-css {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  border: none;
+  width: 350px;
+  text-align-last: center;
+}
+
+.sell {
+  margin-top: 30px;
+}
+
+.option-css {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+}
+
+html, body {
+  height: 100%;
+}
