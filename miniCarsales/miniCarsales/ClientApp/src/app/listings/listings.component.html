@@ -24,7 +24,7 @@
               <td>{{car.engine}}</td>
               <td>{{car.doors}}</td>
               <td>{{car.wheels}}</td>
-              <td>{{car.vehicleType}}</td>
+              <td>{{getVehicleType(car.vehicleType)}}</td>
               <td><img [src]="getMedia(car.bodyType)" title="Image"></td>
             </tr>
           </tbody>
