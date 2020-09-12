@@ -1,3 +1,4 @@
 miniCarsales/.vs
 miniCarsales/miniCarsales/bin/Debug/netcoreapp3.1
 miniCarsales/miniCarsales/obj
+miniCarsales/miniCarsales/ClientApp/node_modules
