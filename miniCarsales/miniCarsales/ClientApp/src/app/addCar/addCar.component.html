@@ -1,16 +1,20 @@
 <div class="full-height">
 
+  <!--The heading-->
   <div class="container-fluid d-flex justify-content-center">
     <blockquote class="blockquote text-right">
       <p class="text-center h3 mb-0">Add a Car:</p>
     </blockquote>
   </div>
 
+  <!--I've included this div to do some spacing, i can probably improve this later-->
   <div id="leftbox"> </div>
 
+  <!--The div where all the form goes-->
   <div id="middlebox">
 
     <div id="floatleft">
+      <!--Dropdown for make-->
       <select id="selectedMake" name="selectedMake" (change)='SelectMake(selectedMake.value)' class="form-control select-css" style="margin-right:30px;" #selectedMake required>
         <option value=""
                 hidden>
@@ -24,21 +28,25 @@
       </select>
     </div>
     <div id="floatright">
+      <!--Dropdown for model-->
       <select id="selectedModel" name="selectedModel" (change)='SelectModel(selectedModel.value)' class="form-control select-css" #selectedModel required>
         <option value=""
                 hidden>
           Choose Model
         </option>
+        <!--Iterates through this.makeModels which was populated after choosing make and fills them in-->
         <ng-container *ngFor="let model of makeModels">
           <option class="option-css" value="{{model}}">{{model}}</option>
         </ng-container>
       </select>
     </div>
 
+    <!--Renders only if model in carForm is filled-->
     <div *ngIf="carForm.value['Model']" class="input-group">
       <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
         <p class="space-top"><b>Choose Engine Type:</b></p>
       </div>
+      <!--Radio buttons for choosing engine type-->
       <div class="container-fluid h-50 d-flex justify-content-center align-items-center input-group-prepend">
         <div class="input-group-text">
           <div class="radio space-right">
@@ -54,10 +62,12 @@
       </div>
     </div>
 
+    <!--Door and Wheel Count code-->
     <div *ngIf="carForm.value['Engine']" class="input-group">
 
       <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
         <p class="space-top space-right"><b>Door Count: </b></p>
+        <!--Door input-->
         <input type="text" class="form-control" style="width:50px; height: 30px;" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
                (input)="ValidateDoors(doorCount.value, doorError)" #doorCount>
       </div>
@@ -67,18 +77,22 @@
 
       <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
         <p class="space-top space-right"><b>Wheel Count: </b></p>
+        <!--Wheel input-->
         <input type="text" class="form-control" style="width:50px; height: 30px;" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
                (input)="ValidateWheels(wheelCount.value, wheelError)" #wheelCount>
       </div>
       <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
-        <p class="text-danger" #wheelError></p>
+        <p class="text-danger" #wheelError></p> <!--Wheel error text-->
       </div>
 
+      <!--Body Type images and code-->
       <div *ngIf="carForm.value['Doors'] && carForm.value['Wheels']" class="input-group">
 
         <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
           <p class="space-top space-right"><b>Choose Car body type: </b></p>
         </div>
+
+        <!--Body Types are radio buttons disguised by images :)-->
         <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
           <label>
             <input (change)="SelectBodyType(bodyType1.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Convertible}}" #bodyType1>
@@ -116,14 +130,17 @@
 
       </div>
 
+      <!--Create Listing button code-->
       <div *ngIf="carForm.value['BodyType']" class="input-group">
         <div class="space-top container-fluid h-50 d-flex justify-content-center align-items-center">
+          <!--Runs AddToDatabase() which re-routes to home if successful in adding-->
           <button (click)="AddToDatabase()" type="button" class="btn btn-primary">Create Listing</button>
         </div>
       </div>
 
     </div>
 
+    <!--some div for equal spacing-->
     <div id="rightbox"> </div>
 
   </div>

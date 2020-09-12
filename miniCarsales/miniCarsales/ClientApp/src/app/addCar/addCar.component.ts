@@ -11,13 +11,15 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AddCar {
+  //Form to be passed to API in post call
   public carForm: FormGroup;
-
+  //Make models is populated once a user selects a car make from the dropdown
   private makeModels: string[];
 
   constructor(private _fb: FormBuilder, private route: ActivatedRoute, private carService: CarService,
     private _router: Router, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
 
+    //The Form template based on model in ASP.NET Core MVC
     this.carForm = this._fb.group({
       Make: ["", [Validators.required]],
       Model: ["", [Validators.required]],
@@ -29,6 +31,10 @@ export class AddCar {
     });
   }
 
+  /*
+   * If a user selects a new make, reset the form and create a new one
+   * Sets the cars make form to the make selected and populates its models in the next dropdown
+   */
   public SelectMake(selectedValue: string): void {
     this.carForm.reset();
     this.carForm.patchValue({ 'VehicleType': VehicleType.Car });
@@ -36,14 +42,16 @@ export class AddCar {
     this.PopulateModels();
   }
 
+  //Pretty straight forward just sets the model in the form
   public SelectModel(selectedValue: string): void {
     this.carForm.patchValue({ 'Model': selectedValue });
   }
-
+   //Pretty straight forward just sets the engine in the form
   public SelectEngine(selectedValue: string): void {
     this.carForm.patchValue({ 'Engine': selectedValue });
   }
 
+  //Added some web-side validation to the form, Server-side validation is better for security though
   public ValidateDoors(selectedValue: number, doorError: any): void {
     if (selectedValue > 0 && selectedValue <= 20) {
       doorError.innerHTML = "";
@@ -56,6 +64,7 @@ export class AddCar {
     }
   }
 
+  //Validates the wheels and ensures its between range 4 and 20, otherwise, spit out an error message
   public ValidateWheels(selectedValue: number, wheelError: any): void {
     if (selectedValue >= 4 && selectedValue <= 20) {
       wheelError.innerHTML = "";
@@ -68,10 +77,12 @@ export class AddCar {
     }
   }
 
+
   public SelectBodyType(selectedValue: string): void {
     this.carForm.patchValue({ 'BodyType': Number(selectedValue) });
   }
 
+  //This is the big boy that does all the database adding, solid work mate
   public AddToDatabase(): void {
     this.carService.addCar(this.carForm.value).subscribe((data) => {
       this._router.navigate(["/Listings"]);
@@ -79,6 +90,7 @@ export class AddCar {
 
   }
 
+  //This is just checking which make was selected and populates this.makeModels based on selection
   private PopulateModels(): void {
     if (this.carForm.value['Make'] == 'Toyota') {
       this.PopulateToyota();
@@ -97,6 +109,8 @@ export class AddCar {
     }
   }
 
+
+  //Adds the data manually, i dont have a database full of these makes and models like you guys :(
   private PopulateToyota(): void {
     this.makeModels = []
     this.makeModels.push('Corolla')
@@ -147,6 +161,7 @@ export class AddCar {
   }
 }
 
+//These need to be somewhere else but i dont have time to move them right now.
 export enum VehicleType {
   Car = 1,
   Boat = 2,

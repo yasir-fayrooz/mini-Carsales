@@ -19,7 +19,7 @@ import { CarService } from './services/car.service';
     HomeComponent,
     AddCar,
     Listings,
-    JwPaginationComponent
+    JwPaginationComponent //This is a paginating framework i borrowed from npm :)
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

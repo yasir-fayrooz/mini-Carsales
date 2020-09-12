@@ -18,7 +18,7 @@ export class Listings {
   constructor(private _fb: FormBuilder, private route: ActivatedRoute, private carService: CarService,
     private _router: Router, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     carService.getCars().subscribe(result => {
-      this.carsData = result;
+      this.carsData = result; //store the response in the carsData instance as it loads in
     }, error => console.error(error));
   }
 
@@ -27,6 +27,8 @@ export class Listings {
     this.pageOfItems = pageOfItems;
   }
 
+  //Method returns the vehicles type as a string based from the enum input
+  //Im sure there's a better way of doing this though.
   public getVehicleType(vehicleType: VehicleType): string {
     if (vehicleType == VehicleType.Car) {
       return "Car";
@@ -42,6 +44,7 @@ export class Listings {
     }
   }
 
+  //Returns the picture of the Body Type based on its enum value
   public getMedia(bodyType: BodyType) {
     if (bodyType == BodyType.Convertible)
       return "carsales_images/convertible.jpg";

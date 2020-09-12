@@ -1,26 +1,32 @@
-<div class="full-height">
+<!--This helps stretch the components div to window size. Needs improvement-->
+  <div class="full-height">
 
-  <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+    <!--Aligns the div to the center of the page-->
+    <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
 
-    <div class="select-div">
-      <select id="selectedValue" name="selectedValue" (change)='OnOptionSelected(selectedValue.value)' class="form-control select-css" #selectedValue required>
-        <option value=""
-                hidden>
-          Choose a vehicle
-        </option>
-        <option class="option-css" value="Car">Car</option>
-        <option class="option-css" value="Other">Other</option>
-      </select>
+      <!--Dropdown code-->
+      <div class="select-div">
+        <select id="selectedValue" name="selectedValue" (change)='OnOptionSelected(selectedValue.value)' class="form-control select-css" #selectedValue required>
+          <option value=""
+                  hidden>
+            Choose a vehicle
+          </option>
+          <option class="option-css" value="Car">Car</option>
+          <option class="option-css" value="Other">Other</option>
+        </select>
 
-      <ng-container *ngIf="otherSelected">
-        <div class="sell alert alert-info" role="alert" id="errorMsg" name="errorMsg">
-          Boats and Motorbikes will be available soon
-        </div>
-      </ng-container>
-      <button type="button" [routerLink]="['/AddCar']" class="sell btn btn-primary btn-lg btn-block" [disabled]="!validSelection">Create Listing</button>
-      <button type="button" [routerLink]="['/Listings']" class="sell btn btn-primary btn-lg btn-block">View Listings</button>
+        <!--Alert code shows if invalid selection-->
+        <ng-container *ngIf="otherSelected">
+          <div class="sell alert alert-info" role="alert" id="errorMsg" name="errorMsg">
+            Boats and Motorbikes will be available soon
+          </div>
+        </ng-container>
+
+        <!--Buttons to create or view listings that route to respective area-->
+        <button type="button" [routerLink]="['/AddCar']" class="sell btn btn-primary btn-lg btn-block" [disabled]="!validSelection">Create Listing</button>
+        <button type="button" [routerLink]="['/Listings']" class="sell btn btn-primary btn-lg btn-block">View Listings</button>
+      </div>
+
     </div>
 
   </div>
-
-</div>

@@ -4,6 +4,8 @@
     <!--The heading of the page-->
     <h3 class="card-header">Current Vehicle Listings</h3>
     <div class="card-body">
+
+      <!--A table showing all the data stored in the database-->
       <table class='table table-striped' aria-labelledby="tableLabel">
         <thead>
           <tr>
@@ -16,6 +18,7 @@
             <th>Body Type</th>
           </tr>
         </thead>
+        <!--Enumerated through the pageOfItems and displaying each entry-->
         <ng-container *ngFor="let car of pageOfItems">
           <tbody>
             <tr>
@@ -25,15 +28,19 @@
               <td>{{car.doors}}</td>
               <td>{{car.wheels}}</td>
               <td>{{getVehicleType(car.vehicleType)}}</td>
+              <!--Get the Image of the body type enum-->
               <td><img [src]="getMedia(car.bodyType)" title="Image"></td>
             </tr>
           </tbody>
         </ng-container>
       </table>
     </div>
+    <!--The pagination backbone code. Currently a page size is set to 4 before it paginates-->
     <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
       <jw-pagination [items]="carsData" pageSize="4" (changePage)="onChangePage($event)"></jw-pagination>
     </div>
+
+    <!--Button to redirect back to home component-->
     <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
       <button [routerLink]="['']" type="button" class="btn btn-primary">Back Home</button>
     </div>
