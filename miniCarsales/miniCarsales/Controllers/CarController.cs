@@ -27,7 +27,6 @@ namespace miniCarsales.Controllers
         [HttpPost("AddCar")]
         public void AddCarToDB([FromBody] Car car)
         {
-            Console.WriteLine("Adding now");
             _repo.AddCar(car);
         }
     }

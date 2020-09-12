@@ -36,11 +36,15 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\addCar\addCar.component.ts" />
+    <None Remove="ClientApp\src\app\listings\listings.component.ts" />
     <None Remove="ClientApp\src\app\services\car.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\addCar\addCar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\listings\listings.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\services\car.service.ts" />
   </ItemGroup>
 

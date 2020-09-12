@@ -74,7 +74,7 @@ export class AddCar {
 
   public AddToDatabase(): void {
     this.carService.addCar(this.carForm.value).subscribe((data) => {
-      this._router.navigate(["/"]);
+      this._router.navigate(["/Listings"]);
     }, error => console.log(error));
 
   }

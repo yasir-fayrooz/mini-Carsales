@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddCar } from './addCar/addcar.component';
+import { Listings } from './listings/listings.component';
 
 import { CarService } from './services/car.service';
 
@@ -15,6 +16,7 @@ import { CarService } from './services/car.service';
     AppComponent,
     HomeComponent,
     AddCar,
+    Listings,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,6 +26,7 @@ import { CarService } from './services/car.service';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'AddCar', component: AddCar },
+      { path: 'Listings', component: Listings },
     ])
   ],
   providers: [CarService],

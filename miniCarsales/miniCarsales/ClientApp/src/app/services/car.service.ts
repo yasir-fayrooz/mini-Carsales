@@ -14,8 +14,6 @@ export class CarService {
   }
 
   addCar(car) {
-    console.log(car);
-    console.log(this.myAppUrl);
     return this._http.post(this.myAppUrl + "api/Car/AddCar/", car);
   }
 }
