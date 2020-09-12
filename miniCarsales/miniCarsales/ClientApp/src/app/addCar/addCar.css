@@ -1,0 +1,74 @@
+#leftbox {
+  float: left;
+  width: 25%;
+  height: 280px;
+}
+
+#middlebox {
+  float: left;
+  width: 50%;
+  height: 280px;
+}
+
+#floatright {
+  float: right;
+  width: 50%;
+}
+
+#floatleft {
+  float: left;
+  width: 50%;
+}
+
+#rightbox {
+  float: right;
+  width: 25%;
+  height: 280px;
+}
+
+.select-css {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  border: none;
+  width: 90%;
+  text-align-last: center;
+}
+
+.space-top {
+  margin-top: 20px;
+}
+
+.space-right {
+  margin-right: 10px;
+}
+
+.option-css {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* HIDE RADIO */
+.hideRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+  /* IMAGE STYLES */
+  .hideRadio + img {
+    cursor: pointer;
+  }
+
+  /* CHECKED STYLES */
+  .hideRadio:checked + img {
+    outline: 2px solid #05E9FF;
+  }

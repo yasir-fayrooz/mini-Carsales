@@ -1,0 +1,129 @@
+<div class="full-height">
+
+  <div class="container-fluid d-flex justify-content-center">
+    <blockquote class="blockquote text-right">
+      <p class="text-center h3 mb-0">Add a Car:</p>
+    </blockquote>
+  </div>
+
+  <div id="leftbox"> </div>
+
+  <div id="middlebox">
+
+    <div id="floatleft">
+      <select id="selectedMake" name="selectedMake" (change)='SelectMake(selectedMake.value)' class="form-control select-css" style="margin-right:30px;" #selectedMake required>
+        <option value=""
+                hidden>
+          Choose Make
+        </option>
+        <option class="option-css" value="Toyota">Toyota</option>
+        <option class="option-css" value="Volkswagen">Volkswagen</option>
+        <option class="option-css" value="Mazda">Mazda</option>
+        <option class="option-css" value="Audi">Audi</option>
+        <option class="option-css" value="BMW">BMW</option>
+      </select>
+    </div>
+    <div id="floatright">
+      <select id="selectedModel" name="selectedModel" (change)='SelectModel(selectedModel.value)' class="form-control select-css" #selectedModel required>
+        <option value=""
+                hidden>
+          Choose Model
+        </option>
+        <ng-container *ngFor="let model of makeModels">
+          <option class="option-css" value="{{model}}">{{model}}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <div *ngIf="carForm.value['Model']" class="input-group">
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+        <p class="space-top"><b>Choose Engine Type:</b></p>
+      </div>
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center input-group-prepend">
+        <div class="input-group-text">
+          <div class="radio space-right">
+            <label><input type="radio" name="optradio" value="4Cyl 1.4l Engine" (change)='SelectEngine(selectedRadio1.value)' #selectedRadio1>4Cyl 1.4l Engine</label>
+          </div>
+          <div class="radio space-right">
+            <label><input type="radio" name="optradio" value="6Cyl 3.0l Engine" (change)='SelectEngine(selectedRadio2.value)' #selectedRadio2>6Cyl 3.0l Engine</label>
+          </div>
+          <div class="radio space-right">
+            <label><input type="radio" name="optradio" value="8Cyl 8.0l Engine" (change)='SelectEngine(selectedRadio3.value)' #selectedRadio3>8Cyl 8.0l Engine</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="carForm.value['Engine']" class="input-group">
+
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+        <p class="space-top space-right"><b>Door Count: </b></p>
+        <input type="text" class="form-control" style="width:50px; height: 30px;" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+               (input)="ValidateDoors(doorCount.value, doorError)" #doorCount>
+      </div>
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+        <p class="text-danger" #doorError></p>
+      </div>
+
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+        <p class="space-top space-right"><b>Wheel Count: </b></p>
+        <input type="text" class="form-control" style="width:50px; height: 30px;" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+               (input)="ValidateWheels(wheelCount.value, wheelError)" #wheelCount>
+      </div>
+      <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+        <p class="text-danger" #wheelError></p>
+      </div>
+
+      <div *ngIf="carForm.value['Doors'] && carForm.value['Wheels']" class="input-group">
+
+        <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+          <p class="space-top space-right"><b>Choose Car body type: </b></p>
+        </div>
+        <div class="container-fluid h-50 d-flex justify-content-center align-items-center">
+          <label>
+            <input (change)="SelectBodyType(bodyType1.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Convertible}}" #bodyType1>
+            <img class="space-right" src="/carsales_images/convertible.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType2.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Coupe}}" #bodyType2>
+            <img class="space-right" src="/carsales_images/coupe.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType3.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Hatchback}}" #bodyType3>
+            <img class="space-right" src="/carsales_images/hatchback.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType4.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Sedan}}" #bodyType4>
+            <img class="space-right" src="/carsales_images/sedan.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType5.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.SUV}}" #bodyType5>
+            <img class="space-right" src="/carsales_images/suv.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType6.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Ute}}" #bodyType6>
+            <img class="space-right" src="/carsales_images/ute.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType7.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Van}}" #bodyType7>
+            <img class="space-right" src="/carsales_images/van.jpg" />
+          </label>
+          <label>
+            <input (change)="SelectBodyType(bodyType8.value)" class="hideRadio" type="radio" name="bodyTypeRadio" value="{{getBodyType.Wagon}}" #bodyType8>
+            <img class="space-right" src="/carsales_images/wagon.jpg" />
+          </label>
+        </div>
+
+      </div>
+
+      <div *ngIf="carForm.value['BodyType']" class="input-group">
+        <div class="space-top container-fluid h-50 d-flex justify-content-center align-items-center">
+          <button (click)="AddToDatabase()" type="button" class="btn btn-primary">Create Listing</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="rightbox"> </div>
+
+  </div>

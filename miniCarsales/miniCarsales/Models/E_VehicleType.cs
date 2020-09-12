@@ -7,8 +7,8 @@ namespace miniCarsales.Models
 {
     public enum VehicleType
     {
-        Car,
-        Boat,
-        Caravan,
+        Car = 1,
+        Boat = 2,
+        Caravan = 3,
     }
 }

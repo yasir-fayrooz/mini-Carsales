@@ -7,13 +7,13 @@ namespace miniCarsales.Models
 {
     public enum BodyType
     {
-        Hatchback,
-        Sedan,
-        SUV,
-        Ute,
-        Coupe,
-        Convertible,
-        Wagon,
-        Van,
+        Hatchback = 1,
+        Sedan = 2,
+        SUV = 3,
+        Ute = 4,
+        Coupe = 5,
+        Convertible = 6,
+        Wagon = 7,
+        Van = 8,
     }
 }
