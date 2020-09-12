@@ -3,6 +3,7 @@ import { CarService, CarData } from '../services/car.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { VehicleType, BodyType } from '../addCar/addcar.component';
 
 @Component({
   selector: 'listings',
@@ -25,4 +26,49 @@ export class Listings {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
+
+  public getVehicleType(vehicleType: VehicleType): string {
+    if (vehicleType == VehicleType.Car) {
+      return "Car";
+    }
+    else if (vehicleType == VehicleType.Boat) {
+      return "Boat";
+    }
+    else if (vehicleType == VehicleType.Caravan) {
+      return "Caravan";
+    }
+    else {
+      return "Unknown";
+    }
+  }
+
+  public getMedia(bodyType: BodyType) {
+    if (bodyType == BodyType.Convertible)
+      return "carsales_images/convertible.jpg";
+    else if (bodyType == BodyType.Coupe) {
+      return "carsales_images/coupe.jpg";
+    }
+    else if (bodyType == BodyType.Hatchback) {
+      return "carsales_images/hatchback.jpg";
+    }
+    else if (bodyType == BodyType.Sedan) {
+      return "carsales_images/sedan.jpg";
+    }
+    else if (bodyType == BodyType.SUV) {
+      return "carsales_images/suv.jpg";
+    }
+    else if (bodyType == BodyType.Ute) {
+      return "carsales_images/ute.jpg";
+    }
+    else if (bodyType == BodyType.Van) {
+      return "carsales_images/van.jpg";
+    }
+    else if (bodyType == BodyType.Wagon) {
+      return "carsales_images/wagon.jpg";
+    }
+    else {
+      return "";
+    }
+  }
+
 }

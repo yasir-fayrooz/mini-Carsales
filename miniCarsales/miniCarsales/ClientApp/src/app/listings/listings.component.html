@@ -1,9 +1,6 @@
 <div class="full-height">
-  <!--Div to separate the left side of the screen with css-->
-  <div id="leftbox"> </div>
 
-  <!--Middle div where content will be shown-->
-  <div class="middlebox card text-center m-3">
+  <div class="card text-center m-3">
     <!--The heading of the page-->
     <h3 class="card-header">Current Vehicle Listings</h3>
     <div class="card-body">
@@ -28,20 +25,18 @@
               <td>{{car.doors}}</td>
               <td>{{car.wheels}}</td>
               <td>{{car.vehicleType}}</td>
-              <td>{{car.bodyType}}</td>
+              <td><img [src]="getMedia(car.bodyType)" title="Image"></td>
             </tr>
           </tbody>
         </ng-container>
       </table>
     </div>
     <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
-      <jw-pagination [items]="carsData" (changePage)="onChangePage($event)"></jw-pagination>
+      <jw-pagination [items]="carsData" pageSize="4" (changePage)="onChangePage($event)"></jw-pagination>
     </div>
     <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
-      <button [routerLink]="['/AddCar']" type="button" class="btn btn-primary">Back Home</button>
+      <button [routerLink]="['']" type="button" class="btn btn-primary">Back Home</button>
     </div>
   </div>
 
-  <!--Right div to separate middle and left equally-->
-  <div id="rightbox"> </div>
 </div>

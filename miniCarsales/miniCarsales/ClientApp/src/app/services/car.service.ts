@@ -1,6 +1,7 @@
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { VehicleType, BodyType } from "../addCar/addcar.component";
+import { Observable } from "rxjs";
 
 export interface CarData {
   Make: string;
@@ -20,8 +21,8 @@ export class CarService {
     this.myAppUrl = baseUrl;
   }
 
-  getCars() {
-    return this._http.get(this.myAppUrl + "api/Car/GetCars/");
+  getCars(): Observable<CarData[]> {
+    return this._http.get<CarData[]>(this.myAppUrl + "api/Car/GetCars/");
   }
 
   addCar(car) {
