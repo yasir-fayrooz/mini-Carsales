@@ -12,14 +12,16 @@ I made this little pocket rocket in just over a day. I wish i could have improve
 You will need these dependencies to work with the local database connection, otherwise, the site wont work!
 
 ## 2. In visual studio, go to view > SQL Server object explorer
-# 2.1 > right click on (localdb)\\MSSQLLocalDB and click on properties
-# 2.2 > ensure the connection string property is the same as the connection string property in appsettings.json
-
-I think its the same for everyone but i'm stating this just to be safe.
  <p align="center"> 
     <img src="img/sqlexplorer.JPG" alt="sqlexplorer" width="400">
+ </p>
+### 2.1 > right click on (localdb)\\MSSQLLocalDB and click on properties
+ <p align="center"> 
     <img src="img/connectionstring2.JPG" alt="connectionstring2" width="400">
  </p>
+### 2.2 > ensure the connection string property is the same as the connection string property in appsettings.json
+
+I think its the same for everyone but i'm stating this just to be safe.
   <p align="center"> 
     <img src="img/connectionstring.JPG" alt="connectionstring" width="400">
  </p>
