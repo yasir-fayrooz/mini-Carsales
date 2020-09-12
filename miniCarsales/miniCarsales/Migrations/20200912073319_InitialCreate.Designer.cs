@@ -9,7 +9,7 @@ using miniCarsales.Models.Context;
 namespace miniCarsales.Migrations
 {
     [DbContext(typeof(MiniCarsalesContext))]
-    [Migration("20200911233155_InitialCreate")]
+    [Migration("20200912073319_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

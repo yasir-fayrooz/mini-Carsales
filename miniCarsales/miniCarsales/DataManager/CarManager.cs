@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using miniCarsales.Models;
 using miniCarsales.Models.Context;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-
 namespace miniCarsales.DataManager
 {
     public class CarManager
@@ -23,3 +20,4 @@ namespace miniCarsales.DataManager
             _context.SaveChanges();
         }
     }
+}
