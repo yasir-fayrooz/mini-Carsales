@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { AddCar } from './addCar/addcar.component';
 import { Listings } from './listings/listings.component';
 
+import { JwPaginationComponent } from 'jw-angular-pagination';
+
 import { CarService } from './services/car.service';
 
 @NgModule({
@@ -17,6 +19,7 @@ import { CarService } from './services/car.service';
     HomeComponent,
     AddCar,
     Listings,
+    JwPaginationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

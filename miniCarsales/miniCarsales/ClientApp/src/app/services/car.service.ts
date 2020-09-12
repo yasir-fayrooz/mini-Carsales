@@ -1,5 +1,16 @@
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { VehicleType, BodyType } from "../addCar/addcar.component";
+
+export interface CarData {
+  Make: string;
+  Model: string;
+  VehicleType: VehicleType;
+  Engine: string;
+  Doors: number;
+  Wheels: number;
+  BodyType: BodyType;
+}
 
 @Injectable()
 export class CarService {

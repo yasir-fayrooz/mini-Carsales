@@ -1,17 +1,45 @@
 <div class="full-height">
-  <!--The heading of the page-->
-  <div class="container-fluid d-flex justify-content-center">
-    <blockquote class="blockquote text-right">
-      <p class="text-center h3 mb-0">Current Listings:</p>
-    </blockquote>
-  </div>
-
   <!--Div to separate the left side of the screen with css-->
   <div id="leftbox"> </div>
 
   <!--Middle div where content will be shown-->
-  <div id="middlebox">
-
+  <div class="middlebox card text-center m-3">
+    <!--The heading of the page-->
+    <h3 class="card-header">Current Vehicle Listings</h3>
+    <div class="card-body">
+      <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>
+          <tr>
+            <th>Car Make</th>
+            <th>Car Model</th>
+            <th>Car Engine </th>
+            <th>Car Doors</th>
+            <th>Car Wheels</th>
+            <th>Vehicle Type</th>
+            <th>Body Type</th>
+          </tr>
+        </thead>
+        <ng-container *ngFor="let car of pageOfItems">
+          <tbody>
+            <tr>
+              <td>{{car.make}}</td>
+              <td>{{car.model}}</td>
+              <td>{{car.engine}}</td>
+              <td>{{car.doors}}</td>
+              <td>{{car.wheels}}</td>
+              <td>{{car.vehicleType}}</td>
+              <td>{{car.bodyType}}</td>
+            </tr>
+          </tbody>
+        </ng-container>
+      </table>
+    </div>
+    <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
+      <jw-pagination [items]="carsData" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+    <div class="card-footer pb-0 pt-3 container-fluid h-50 d-flex justify-content-center align-items-center">
+      <button [routerLink]="['/AddCar']" type="button" class="btn btn-primary">Back Home</button>
+    </div>
   </div>
 
   <!--Right div to separate middle and left equally-->
