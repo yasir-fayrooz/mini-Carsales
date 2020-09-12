@@ -12,10 +12,10 @@ namespace miniCarsales.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Make = table.Column<string>(nullable: true),
-                    Model = table.Column<string>(nullable: true),
+                    Make = table.Column<string>(maxLength: 30, nullable: false),
+                    Model = table.Column<string>(maxLength: 30, nullable: false),
                     VehicleType = table.Column<int>(nullable: false),
-                    Engine = table.Column<string>(nullable: true),
+                    Engine = table.Column<string>(maxLength: 50, nullable: false),
                     Doors = table.Column<int>(nullable: false),
                     Wheels = table.Column<int>(nullable: false),
                     BodyType = table.Column<int>(nullable: false)

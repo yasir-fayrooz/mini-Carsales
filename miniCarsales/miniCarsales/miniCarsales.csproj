@@ -32,6 +32,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200911233155_InitialCreate.cs" />
     <Compile Remove="Migrations\20200911233155_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200912073319_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200912073319_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +48,10 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\services\car.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

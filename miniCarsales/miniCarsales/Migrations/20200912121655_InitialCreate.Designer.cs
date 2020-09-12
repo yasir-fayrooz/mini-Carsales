@@ -9,7 +9,7 @@ using miniCarsales.Models.Context;
 namespace miniCarsales.Migrations
 {
     [DbContext(typeof(MiniCarsalesContext))]
-    [Migration("20200912073319_InitialCreate")]
+    [Migration("20200912121655_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,13 +34,19 @@ namespace miniCarsales.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Engine")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Make")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Model")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<int>("VehicleType")
                         .HasColumnType("int");
